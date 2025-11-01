@@ -1207,10 +1207,9 @@ $content .= <<<EOT
 $(document).ready(function() {
     var table = $('#dataTable').DataTable({
         language: { url: 'assets/js/Spanish.json' },
-        dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>' +
-             '<"row"<"col-sm-12"tr>>' +
-             '<"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>' +
-             '<"row"<"col-sm-12"B>>',
+dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>' +
+     '<"row"<"col-sm-12"tr>>' +
+     '<"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
         buttons: [
             {
                 extend: 'excelHtml5',   // explicit HTML5 exporter
@@ -1235,7 +1234,6 @@ $(document).ready(function() {
     $('#exportPdfBtn').on('click', function() { table.button('.buttons-pdf').trigger(); });
     $('#printBtn').on('click', function() { window.print(); });
 
-            
             $ajaxFunctions
             
             // Inicializar todos los eventos de botones
