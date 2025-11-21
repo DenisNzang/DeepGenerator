@@ -1,0 +1,476 @@
+:root {
+    --primary-color: #fd7e14; /* Cambiado a orange */
+    --success-color: #198754;
+    --info-color: #0dcaf0;
+}
+
+.stepper-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: -50%;
+    z-index: 2;
+}
+
+.stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 2;
+}
+
+.stepper-item:first-child::before {
+    content: none;
+}
+
+.stepper-item:last-child::after {
+    content: none;
+}
+
+.step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-bottom: 6px;
+    color: white;
+    font-weight: bold;
+}
+
+.stepper-item.completed .step-counter {
+    background-color: var(--primary-color);
+}
+
+.stepper-item.active .step-counter {
+    background-color: var(--primary-color);
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(253, 126, 20, 0.2);
+}
+
+.step-name {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.stepper-item.completed .step-name,
+.stepper-item.active .step-name {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.database-option {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    height: 100%;
+}
+
+.database-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.database-option .form-check-input:checked + .card-body {
+    border-color: var(--primary-color);
+    background-color: rgba(253, 126, 20, 0.05);
+}
+
+.query-item {
+    transition: all 0.3s ease;
+}
+
+.query-item:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.field-config-card {
+    border-left: 4px solid var(--primary-color);
+}
+
+.nav-tabs .nav-link.active {
+    border-bottom: 3px solid var(--primary-color);
+    font-weight: 500;
+}
+
+.progress-bar {
+    transition: width 0.6s ease;
+}
+
+/* Estilos para la vista compacta de tablas */
+.column-preview {
+    max-height: 80px;
+    overflow-y: auto;
+    font-size: 0.7rem;
+}
+
+.column-preview::-webkit-scrollbar {
+    width: 3px;
+}
+
+.column-preview::-webkit-scrollbar-track {
+    background: #f8f9fa;
+    border-radius: 2px;
+}
+
+.column-preview::-webkit-scrollbar-thumb {
+    background: #dee2e6;
+    border-radius: 2px;
+}
+
+.column-preview::-webkit-scrollbar-thumb:hover {
+    background: #adb5bd;
+}
+
+.badge-sm {
+    font-size: 0.55em;
+    padding: 0.15em 0.3em;
+}
+
+.card-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Dashboard compacto */
+.dashboard-compact {
+    background: linear-gradient(135deg, #fd7e14, #e55a00);
+    color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.dashboard-compact .stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.dashboard-compact .stat-label {
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+/* Mejorar la visualización de los badges de resumen */
+.alert-light .col-md-3 {
+    border-right: 1px solid #dee2e6;
+}
+
+.alert-light .col-md-3:last-child {
+    border-right: none;
+}
+
+/* Hacer las tarjetas más compactas */
+.card-body.p-2 {
+    padding: 0.5rem !important;
+}
+
+/* Estilos para configuración de campos compacta */
+.field-config-compact {
+    font-size: 0.8rem;
+}
+
+.field-config-compact .form-check {
+    margin-bottom: 0.3rem;
+}
+
+.field-config-compact .form-check-input {
+    transform: scale(0.8);
+}
+
+.field-config-compact .form-label {
+    font-size: 0.75rem;
+    margin-bottom: 0.2rem;
+}
+
+.field-config-compact .form-control,
+.field-config-compact .form-select {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.4rem;
+    height: calc(1.5em + 0.4rem);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .stepper-wrapper {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .stepper-item::before,
+    .stepper-item::after {
+        display: none;
+    }
+    
+    .step-counter {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .col-md-6 {
+        margin-bottom: 0.5rem;
+    }
+    
+    .alert-light .col-md-3 {
+        border-right: none;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .alert-light .col-md-3:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    
+    .dashboard-compact .stat-number {
+        font-size: 1.2rem;
+    }
+    
+    .dashboard-compact .stat-label {
+        font-size: 0.7rem;
+    }
+}
+
+/* Iconos de bases de datos */
+.database-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.sqlite-icon {
+    color: #003B57;
+}
+
+.mysql-icon {
+    color: #4479A1;
+}
+
+.postgresql-icon {
+    color: #336791;
+}
+
+/* Estilos para el accordion de tablas */
+.accordion-button:not(.collapsed) {
+    background-color: rgba(253, 126, 20, 0.1);
+    color: #fd7e14;
+    border-color: #fd7e14;
+}
+
+.accordion-button:focus {
+    border-color: #fd7e14;
+    box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.25);
+}
+
+.table-checkbox {
+    transform: scale(1.2);
+}
+
+.accordion-body {
+    font-size: 0.875rem;
+}
+
+/* Mejorar la visualización de tablas dentro del accordion */
+.accordion-body .table-responsive {
+    font-size: 0.8rem;
+}
+
+.accordion-body .table th {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.accordion-body .badge {
+    font-size: 0.65rem;
+}
+
+/* Estilos para los íconos de claves */
+.bi-key, .bi-link-45deg {
+    font-size: 0.9rem;
+}
+
+/* Responsive para el accordion */
+@media (max-width: 768px) {
+    .accordion-button .d-flex {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    .accordion-button .badge {
+        margin-top: 0.25rem;
+    }
+    
+    .accordion-body .table-responsive {
+        font-size: 0.7rem;
+    }
+}
+
+/* Estilos específicos para el accordion de análisis */
+.analysis-accordion .accordion-button {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.analysis-accordion .accordion-button:not(.collapsed) {
+    background-color: rgba(253, 126, 20, 0.1);
+    border-color: #fd7e14;
+}
+
+.analysis-accordion .accordion-body {
+    background-color: #fff;
+    border-left: 3px solid #fd7e14;
+}
+
+/* Mejorar la visualización de tablas en el análisis */
+.analysis-table th {
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.analysis-table td {
+    font-size: 0.85rem;
+    vertical-align: middle;
+}
+
+.analysis-table code {
+    font-size: 0.75rem;
+    background-color: #f8f9fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+}
+
+/* Estilos para los badges en el análisis */
+.analysis-badge {
+    font-size: 0.7rem;
+}
+
+/* Responsive para el análisis */
+@media (max-width: 768px) {
+    .analysis-accordion .accordion-button .d-flex {
+        flex-direction: column;
+        align-items: flex-start !important;
+        text-align: left;
+    }
+    
+    .analysis-accordion .accordion-button .badge {
+        margin-top: 0.25rem;
+        margin-left: 0 !important;
+    }
+    
+    .analysis-table {
+        font-size: 0.75rem;
+    }
+    
+    .analysis-table th,
+    .analysis-table td {
+        padding: 0.4rem;
+    }
+}
+
+/* Estilos para las imágenes de bases de datos */
+.database-icon img {
+    transition: transform 0.3s ease;
+}
+
+.database-option:hover .database-icon img {
+    transform: scale(1.1);
+}
+
+/* Estilos para prevenir desbordamiento */
+.container-fluid {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.card {
+    max-width: 100%;
+}
+
+.step-content {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Asegurar que los accordions no se desborden */
+.accordion {
+    max-width: 100%;
+}
+
+.accordion-body {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Mejorar el responsive de las tablas dentro de accordions */
+.accordion-body .table-responsive {
+    max-width: 100%;
+}
+
+/* Ajustes específicos para el stepper en móviles */
+@media (max-width: 768px) {
+    .stepper-wrapper {
+        padding: 0 10px;
+    }
+    
+    .step-content {
+        padding: 0 5px;
+    }
+    
+    .card-body {
+        padding: 1rem !important;
+    }
+}
+
+/* Prevenir desbordamiento en elementos específicos */
+.database-option {
+    max-width: 100%;
+}
+
+.form-control, .form-select {
+    max-width: 100%;
+}
+
+/* Asegurar que las imágenes no se desborden */
+.database-icon img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilos para checkboxes en el accordion de análisis */
+.accordion-button .form-check-input {
+    transform: scale(1.2);
+    margin-right: 0.5rem;
+}
+
+.accordion-button:not(.collapsed) .form-check-input {
+    border-color: white;
+}
+
+/* Mejorar la visualización del texto cuando el accordion está expandido */
+.accordion-button:not(.collapsed) .fw-bold {
+    color: inherit;
+}
